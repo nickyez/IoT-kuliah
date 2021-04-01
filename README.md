@@ -11,3 +11,6 @@ Update v1.5
 - Menambahkan kolom user pada index.php
 - Menambahkan Get data user pada insert_data.php
 - Menambahkan nama user pada esp32-api.ino
+
+Preview dalam index.php
+<img src="img/Screenshot (44).png" title="preview">
