@@ -27,7 +27,7 @@ void loop() {
         if(WiFi.status()== WL_CONNECTED){
             HTTPClient http;
             randNumber = random(100);
-            String serverPath = serverName + "?&nama_sensor=SensorDHT11&nilai=" + randNumber + "&user=NickyErlangga";
+            String serverPath = serverName + "?&nama_sensor=SensorDHT11&nilai=" + randNumber + "&user=NickyErlangga"; // user ini sesuai nama kalian, tanpa spasi ya!!
             // Your Domain name with URL path or IP address with path
             http.begin(serverPath.c_str());
             // Send HTTP GET request
