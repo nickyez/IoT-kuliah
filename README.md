@@ -4,6 +4,9 @@ insert_data.php merupakan file untuk menambahkan data yang dikirim dari nodeMCU
 
 file index.php dan insert_data.php dimasukkan ke /var/www/html/ pada server kalian
 
+ATTENTION!!
+- Tambahkan kolom `pengguna` pada tabel `tampung_data` di database kalian - 
+
 Update v1.5
 - Menambahkan kolom user pada index.php
 - Menambahkan Get data user pada insert_data.php
