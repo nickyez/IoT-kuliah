@@ -1,15 +1,24 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
+#include <DHTesp.h>
+
+DHTesp dht;
+/** Task handle for the light value read task */
+TaskHandle_t tempTaskHandle = NULL;
+/** Pin number for DHT11 data pin */
+int dhtPin = 15;
+
 int randNumber;
 const char* ssid = "WLAN-Spark";
 const char* password = "10101010";//Your Domain name with URL path or IP address with path
-String serverName = "http://139.162.44.93/insert_data.php";
+String serverName = "https://kelompok5-iot.000webhostapp.com/insert_data.php";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 void setup() {
   Serial.begin(115200);
   WiFi.begin(ssid, password);
   Serial.println("Connecting");
+  dht.setup(dhtPin, DHTesp::DHT11);
   while(WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -21,12 +30,15 @@ void setup() {
 }
 void loop() {
   //Send an HTTP POST request every 10 minutes
+  TempAndHumidity lastValues = dht.getTempAndHumidity();
   if ((millis() - lastTime) > timerDelay) {
     //Check WiFi connection status
     if(WiFi.status()== WL_CONNECTED){
       HTTPClient http;
       randNumber = random(100);
-      String serverPath = serverName + "?&nama_sensor=Sensor_NIcky&nilai=" + randNumber + "&user=NickyErlangga";
+      String temp = String(lastValues.temperature,0);
+      String humi = String(lastValues.humidity,0);
+      String serverPath = serverName + "?&nama_sensor=Sensor_Nicky&nilai=temp_" + temp + "_humi_" + humi + "&user=NickyErlangga";
       // Your Domain name with URL path or IP address with path
       http.begin(serverPath.c_str());
       // Send HTTP GET request
