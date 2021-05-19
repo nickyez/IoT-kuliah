@@ -2,13 +2,13 @@
 #include <WiFi.h>
 #include <PubSubClient.h> // Download library
 
-const char* ssid="RUMAH"; // SSID wifimu
-const char* pass="11111111"; // Password wifimu
+const char* ssid="Hotspot-Harian"; // SSID wifimu
+const char* pass="17171717"; // Password wifimu
 const char* brokerUser = "kelompok5";
 const char* brokerPass = "kelompok5";
 const char* broker = "192.227.88.110";
-const char* outTopic ="Displays/espnext01/out";
-const char* inTopic ="Displays/espnext01/in";
+const char* outTopic ="bab12";
+const char* inTopic ="Displays/bab12/in";
 WiFiClient espClient;
 PubSubClient client(espClient);
 long currentTime, lastTime;
@@ -30,7 +30,7 @@ void reconnect(){
     while(!client.connected()){
         Serial.print("\nConncting to ");
         Serial.println(broker);
-        if(client.connect("espnext01", brokerUser, brokerPass)){
+        if(client.connect("bab12", brokerUser, brokerPass)){
             // if(client.connect("espnext01")){
             Serial.print("\nConnected to ");
             Serial.println(broker);
