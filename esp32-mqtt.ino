@@ -30,7 +30,7 @@ void reconnect(){
     while(!client.connected()){
         Serial.print("\nConncting to ");
         Serial.println(broker);
-        if(client.connect("bab12", brokerUser, brokerPass)){
+        if(client.connect("vokasipedia", brokerUser, brokerPass)){
             // if(client.connect("espnext01")){
             Serial.print("\nConnected to ");
             Serial.println(broker);
