@@ -7,8 +7,8 @@ const char* pass="17171717"; // Password wifimu
 const char* brokerUser = "kelompok5";
 const char* brokerPass = "kelompok5";
 const char* broker = "192.227.88.110";
-const char* outTopic ="bab12";
-const char* inTopic ="Displays/bab12/in";
+const char* outTopic ="vokasipedia";
+const char* inTopic ="Displays/vokasipedia/in";
 WiFiClient espClient;
 PubSubClient client(espClient);
 long currentTime, lastTime;
@@ -66,7 +66,7 @@ void loop() {
         currentTime = millis();
     if(currentTime - lastTime > 2000){
         count++;
-        snprintf(messages, 75, "Count: %ld", count);
+        snprintf(messages, 75, "Nicky: %ld", count); // count dirubah jadi nama
         Serial.print("Sending Messages: ");
         Serial.println(messages);
         client.publish(outTopic, messages);
