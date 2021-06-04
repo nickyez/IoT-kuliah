@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'kuliah_iot'
+    database: 'kuliah_iot' // Sesuaikan dengan nama database kalian
 });
 connection.connect();
 //Server start
@@ -29,6 +29,7 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
     // message is Buffer
     console.log(message.toString())
+    // Jika Belum ada table bernama vokasipedia.. buatlah table dengan 4 kolom (id, message, value, foto) 
     connection.query('INSERT INTO vokasipedia VALUES (NULL, "'+message.toString()+'", "40", "ko.jpg")', function (error, results, fields) {
         if (error) throw error;
         console.log('ok');
