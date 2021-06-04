@@ -18,7 +18,7 @@ String nama = "Nicky";
 // -end-
 
 
-String serverName = "https://192.227.88.110/kelompok5_iot/insert_data.php";
+String serverName = "http://192.227.88.110/kelompok5_iot/insert_data.php";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 void setup() {
