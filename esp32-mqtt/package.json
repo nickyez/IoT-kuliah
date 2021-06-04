@@ -1,0 +1,18 @@
+{
+  "name": "esp32-mqtt",
+  "version": "1.0.0",
+  "description": "Cara menjalankan :\r  1. buka folder di vscode lalu ketik perintah di terminal `npm install`\r  2. Setelah install selesai, ketik perintah di terminal `node server.js`\r  3. Buka di browser dengan url `http://localhost:8080`",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mqtt": "^4.2.6",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.1.2"
+  }
+}
