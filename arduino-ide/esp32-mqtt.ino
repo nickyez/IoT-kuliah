@@ -2,8 +2,12 @@
 #include <WiFi.h>
 #include <PubSubClient.h> // Download library
 
-const char* ssid="Hotspot-Harian"; // SSID wifimu
-const char* pass="17171717"; // Password wifimu
+// Harus diubah
+const char* ssid="Hotspot-Harian"; 
+const char* pass="17171717"; 
+String nama = "Nicky";
+
+// setting vps
 const char* brokerUser = "kelompok5";
 const char* brokerPass = "kelompok5";
 const char* broker = "192.227.88.110";
