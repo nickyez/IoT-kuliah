@@ -5,7 +5,7 @@
 // Harus diubah
 const char* ssid="Hotspot-Harian"; 
 const char* pass="17171717"; 
-String nama = "Nicky";
+char nama = "Nicky";
 
 // setting vps
 const char* brokerUser = "kelompok5";
@@ -70,7 +70,7 @@ void loop() {
         currentTime = millis();
     if(currentTime - lastTime > 2000){
         count++;
-        snprintf(messages, 75, "Nicky: %ld", count); // count dirubah jadi nama
+        snprintf(messages, 75, "%c : %ld",nama ,count); // count dirubah jadi nama
         Serial.print("Sending Messages: ");
         Serial.println(messages);
         client.publish(outTopic, messages);
