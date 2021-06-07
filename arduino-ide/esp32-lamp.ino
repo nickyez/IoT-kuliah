@@ -1,7 +1,9 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
-#define LED 2
+#define LED1 2
+#define LED2 4
+#define LED3 16
 int randNumber;
 
 const char* ssid = "RUMAH";
@@ -13,7 +15,9 @@ unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 
 void setup() {
-    pinMode(LED,OUTPUT);
+    pinMode(LED1,OUTPUT);
+    pinMode(LED2,OUTPUT);
+    pinMode(LED3,OUTPUT);
     Serial.begin(115200);
     WiFi.begin(ssid, password);
     Serial.println("Connecting");
@@ -46,16 +50,36 @@ void loop() {
                 payload.toCharArray(json, 500);
                 StaticJsonDocument<384> doc;
                 DeserializationError error = deserializeJson(doc, json);
-                const char* token=doc[0]["status_lampu"];
+                const char* token1=doc[0]["status_lampu"];
+                const char* token2=doc[1]["status_lampu"];
+                const char* token3=doc[2]["status_lampu"];
                 //Serial.println(token);
                 //Serial.print("nyoba ");
-                String kondisilamp = String(token);
-                if (kondisilamp=="yes"){
-                    digitalWrite(LED,HIGH);
+                String kondisilamp1 = String(token1);
+                String kondisilamp2 = String(token2);
+                String kondisilamp3 = String(token3);
+                if (kondisilamp1=="yes"){
+                    digitalWrite(LED1,HIGH);
                     Serial.print("nyala");
                 }
-                if (kondisilamp=="no"){
-                    digitalWrite(LED,LOW);
+                if (kondisilamp1=="no"){
+                    digitalWrite(LED1,LOW);
+                    Serial.print("mati");
+                }
+                if (kondisilamp2=="yes"){
+                    digitalWrite(LED2,HIGH);
+                    Serial.print("nyala");
+                }
+                if (kondisilamp2=="no"){
+                    digitalWrite(LED2,LOW);
+                    Serial.print("mati");
+                }
+                if (kondisilamp3=="yes"){
+                    digitalWrite(LED3,HIGH);
+                    Serial.print("nyala");
+                }
+                if (kondisilamp3=="no"){
+                    digitalWrite(LED3,LOW);
                     Serial.print("mati");
                 }
             }else {
