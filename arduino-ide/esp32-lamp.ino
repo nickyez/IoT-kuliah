@@ -6,10 +6,12 @@
 #define LED3 16
 int randNumber;
 
+//SSID dan Password wifi atau hotspot kalian
 const char* ssid = "RUMAH";
 const char* password = "11111111";
+
 //Your Domain name with URL path or IP address with path
-String serverName = "http://47.254.251.186/iot/service_lamp.php";
+String serverName = "http://192.227.88.110/kelompok5_iot/lampu/service_lamp.php";
 
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
