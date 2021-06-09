@@ -23,7 +23,7 @@ function onConnection(socket) {
     connectedSocket = socket;
 }
 client.on('connect', function () {
-    client.subscribe('presencex', function (err) {
+    client.subscribe('vokasipedia', function (err) {
     })
 })
 client.on('message', function (topic, message) {
