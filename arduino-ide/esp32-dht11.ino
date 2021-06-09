@@ -45,7 +45,7 @@ void loop() {
       randNumber = random(100);
       String temp = String(lastValues.temperature,0);
       String humi = String(lastValues.humidity,0);
-      String serverPath = serverName + "?&nama_sensor=DHT11_"+ nama +"&temp=" + temp + "&humi=" + humi;
+      String serverPath = serverName + "?nama_sensor=DHT11_"+ nama +"&temp=" + temp + "&humi=" + humi;
       // Your Domain name with URL path or IP address with path
       http.begin(serverPath.c_str());
       // Send HTTP GET request
