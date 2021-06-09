@@ -2,14 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <div id="text">
-      <p></p>
-    </div>
-    <div>
-        <canvas id="myChart"></canvas>
+    <div class="container">
+      <div class="row my-5 mx-0">
+        <h4>Mqtt</h4>
+        <div class="col card">
+          <div id="text">
+            <p></p>
+          </div>
+        </div>
+      </div>
     </div>
     <script>
       var text = document.getElementById("text");
@@ -18,6 +24,5 @@
         text.innerHTML = message.data;
       });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>
